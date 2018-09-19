@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<body>
+<font size="10">
+<script>document.write("<br/>")</script>
+<div align="center">용정의 서화 창작 도우미</div>
+<script>document.write("<br/>")</script>
+<font size="3">
+<script>
+var date = new Date();
+var hour = date.getHours()%12;
+var min = date.getMinutes();
+document.write("현재 실제 시간: " + date.getHours() + "시 " + min + "분" + "<br />");
+var zodiac;
+if (hour%4 == 0)
+	if (min < 20)
+		zodiac = "미";
+	else
+		zodiac = "신";
+else if (hour%4 == 1)
+	if (min < 35)
+		zodiac = "유";
+	else if (min < 55)
+		zodiac = "술";
+	else
+		zodiac = "해";
+else if (hour%4 == 2)
+	if (min < 5)
+		zodiac = "해";
+	else if (min < 10)
+		zodiac = "자";
+	else if (min < 15)
+		zodiac = "축";
+	else if (min < 25)
+		zodiac = "인";
+	else if (min < 50)
+		zodiac = "묘";
+	else
+		zodiac = "진";
+else if (hour%4 == 3)
+	if (min < 30)
+		zodiac = "진";
+	else if (min < 55)
+		zodiac = "사";
+	else
+		zodiac = "오";
+var weather;
+document.write("현재 게임 시간: " + zodiac + "시<br />");
+var standard = new Date("February 8, 2018");
+var days = Math.round((date-standard)/(1000*60*60*24));
+var seasons = ["대한", "입춘", "우수", "경칩", "춘분", "청명", "곡우", "입하", "소만", "망종", "하지", "소서", "대서", "입추", "처서", "백로", "추분", "한로", "상강", "입동", "소설", "대설", "동지", "소한"];
+var season = seasons[Math.floor(days/2.5)];
+document.write("현재 게임 절기: " + season + "<br />");
+document.write("현재 게임 날씨: " + weather + "<br /><br />");
+
+//나중에 추가할 기능
+//0. db삽입 후 테이블 형태로 db 긁어오기
+//1. 서화레벨 반영
+//2. 클릭하면 자세한 정보
+//3. 바로 이후에 창작 가능한 서화
+//4. 현재 날씨 (서버에서 정보 받아야)
+//5. 날짜를 활용한 절기 예측
+//6. 절기 예측을 통한 날씨 확률 산정
+//7. 포매팅 예쁘게 디자인
+document.write("현재 창작 가능한 서화는 다음과 같습니다.<br />");
+</script>
+<font size="2">
+<script>
+if (zodiac == "자") //4의 배수 시 일 때
+{
+		document.write("강남 - 풍교야박 (가랑비)<br />");
+		document.write("동월 - 천향곡 (맑음, 화창)<br />");
+		document.write("동월 - 민월 옛성 (폭우)<br />");
+		document.write("향주 - 풍우전당 (폭우, 가랑비)<br />");
+		document.write("향주 - 오왕릉 (흐림)<br />");
+		document.write("향주 - 동평 군왕부 (뇌우)<br />");
+		document.write("구화 - 득의방 (맑음, 화창)<br />");
+		document.write("서해 - 검절헌 (맑음, 화창)<br />");
+		document.write("개봉 - 개봉성 (맑음, 화창)<br />");
+		document.write("개봉 - 백귀야곡 (폭우)<br />");
+		document.write("진천 - 침검지 (폭설)<br />");
+}
+else if (zodiac == "축")
+{
+		document.write("동월 - 장락탄 (맑음, 화창)<br />");
+		document.write("동월 - 상초산장 (맑음, 화창)<br />");
+		document.write("향주 - 풍우전당 (폭우, 가랑비)<br />");
+		document.write("구화 - 혈무금지 (맑음, 화창)<br />");
+		document.write("서해 - 고도촌 (맑음, 화창)<br />");
+		document.write("개봉 - 개봉 성문 (맑음, 화창)<br />");
+		document.write("진천 - 논검정 (맑음, 화창)<br />");
+}
+else if (zodiac == "인")
+{
+		document.write("동월 - 장락탄 (맑음, 화창)<br />");
+		document.write("동월 - 상초산장 (맑음, 화창)<br />");
+		document.write("향주 - 풍우전당 (폭우, 가랑비)<br />");
+		document.write("구화 - 혈무금지 (맑음, 화창)<br />");
+		document.write("서해 - 고도촌 (맑음, 화창)<br />");
+		document.write("개봉 - 개봉 성문 (맑음, 화창)<br />");
+		document.write("진천 - 논검정 (맑음, 화창)<br />");
+}
+else if (zodiac == "묘")
+{
+		document.write("향주 - 공야곡 (맑음, 화창) <br />");
+		document.write("향주 - 풍우전당 (폭우, 가랑비)<br />");
+		document.write("구화 - 화청고불 (맑음, 화창)<br />");
+		document.write("서해 - 현도단검 (맑음, 화창)<br />");
+		document.write("개봉 - 상국사 (맑음, 화창)<br />");
+		document.write("진천 - 태백 산문 (진눈깨비, 폭설)<br />");
+}
+else if (zodiac == "진")
+{
+		document.write("강남 - 비설탄 (폭우, 가랑비)<br />");
+		document.write("구화 - 방화곡 (폭우, 가랑비)<br />");
+		document.write("서해 - 장월객잔 (맑음, 화창)<br />");
+		document.write("개봉 - 호룡하 (맑음, 화창)<br />");
+		document.write("진천 - 논검평 (진눈깨비, 폭설)<br />");
+}
+else if (zodiac == "사")
+{
+		document.write("강남 - 비설탄 (폭우, 가랑비)<br />");
+		document.write("구화 - 방화곡 (폭우, 가랑비)<br />");
+		document.write("서해 - 장월객잔 (맑음, 화창)<br />");
+		document.write("개봉 - 호룡하 (맑음, 화창)<br />");
+		document.write("진천 - 논검평 (진눈깨비, 폭설)<br />");
+}
+else if (zodiac == "오")
+{
+		document.write("강남 - 주신곡 (화창)<br />");
+		document.write("동월 - 오금차 (화창)<br />");
+		document.write("향주 - 백리탕 (화창)<br />");
+		document.write("구화 - 공작산장 (화창)<br />");
+		document.write("서해 - 망단사양 (화창)<br />");
+		document.write("개봉 - 비가도 (화창)<br />");
+		document.write("진천 - 옥천원 (진눈깨비)<br />");	
+}
+else if (zodiac == "미")
+{
+		document.write("강남 - 벽력당 옛터 (폭우, 가랑비)<br />");
+		document.write("구화 - 연래촌 (맑음, 화창)<br />");
+		document.write("구화 - 혈무루 (폭우, 가랑비)<br />");
+		document.write("서해 - 화양림 (맑음, 화창)<br />");
+		document.write("진천 - 약왕곡 (맑음, 화창)<br />");
+		document.write("진천 - 앵가촌 (진눈깨비, 폭설)<br />");
+}
+else if (zodiac == "신")
+{
+		document.write("강남 - 벽력당 옛터 (폭우, 가랑비)<br />");
+		document.write("구화 - 연래촌 (맑음, 화창)<br />");
+		document.write("구화 - 혈무루 (폭우, 가랑비)<br />");
+		document.write("서해 - 화양림 (맑음, 화창)<br />");
+		document.write("진천 - 약왕곡 (맑음, 화창)<br />");
+		document.write("진천 - 앵가촌 (진눈깨비, 폭설)<br />");
+}
+else if (zodiac == "유")
+{
+		document.write("강남 - 장풍림 (맑음, 화창)<br />");
+		document.write("동월 - 야학추 (가랑비)<br />");
+		document.write("향주 - 뇌봉석조 (맑음, 화창)<br />");
+		document.write("구화 - 이혼협 (맑음, 화창)<br />");
+		document.write("서해 - 천룡사 (맑음, 화창)<br />");
+		document.write("개봉 - 주선촌 (맑음, 화창)<br />");
+		document.write("진천 - 진천 운해 (흐림, 구름 많음, 다습, 안개, 짙은 안개)<br />");
+}
+else if (zodiac == "술")
+{
+		document.write("강남 - 연환오 (맑음, 화창)<br />");
+		document.write("동월 - 영해촌 (맑음, 화창)<br />");
+		document.write("향주 - 풍우전당 (폭우, 가랑비)<br />");
+		document.write("구화 - 송군랑 (맑음, 가랑비)<br />");
+		document.write("서해 - 팽양 역참 (맑음, 화창)<br />");
+		document.write("개봉 - 거사림 (폭우, 가랑비)<br />");
+}
+else if (zodiac == "해")
+{
+		document.write("강남 - 연환오 (맑음, 화창)<br />");
+		document.write("동월 - 영해촌 (맑음, 화창)<br />");
+		document.write("향주 - 풍우전당 (폭우, 가랑비)<br />");
+		document.write("구화 - 송군랑 (맑음, 가랑비)<br />");
+		document.write("서해 - 팽양 역참 (맑음, 화창)<br />");
+		document.write("개봉 - 거사림 (폭우, 가랑비)<br />");
+}
+
+</script>
+</body>
+</html>
